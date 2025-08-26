@@ -14,11 +14,11 @@ async fn main() -> Result<()> {
     match mode.as_str() {
         "server" => {
             let server_priv = fs::read("server.key")?;
-            println!("[server] listening on 0.0.0.0:8443");
+            println!("[server] listening on 0.0.0.0:443");
 
             loop {
                 let conn_id = NEXT_CONN_ID.fetch_add(1, Ordering::Relaxed);
-                let conn = accept("0.0.0.0:8443", &server_priv).await?;
+                let conn = accept("0.0.0.0:443", &server_priv).await?;
                 println!("[server][session #{conn_id}] accepted");
                 let (driver, _ctrl) = spawn_driver(conn);
                 tokio::spawn(async move {

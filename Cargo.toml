@@ -1,0 +1,51 @@
+[package]
+name = "htx"
+version = "0.1.0"
+edition = "2021"
+license = "Apache-2.0 OR MIT"
+repository = "https://example.com/htx"
+description = "HTX client/server crate: encrypted HTTPS-like transport over TCP-443 (MVP)"
+default-run = "htx"
+
+[lib]
+name = "htx"
+path = "src/lib.rs"
+
+[[example]]
+name = "echo_server"
+path = "examples/echo_server.rs"
+
+[[example]]
+name = "echo_client"
+path = "examples/echo_client.rs"
+
+[dependencies]
+tokio = { version = "1.47", features = ["full"] }
+tokio-rustls = "0.24.1"
+rustls = { version = "0.21.12", features = ["dangerous_configuration"] }
+rustls-pemfile = "1.0.4"
+webpki-roots = "0.25.2"
+quinn = "0.10"
+anyhow = "1.0"
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["fmt", "env-filter"] }
+clap = { version = "4", features = ["derive"] }
+chrono = "0.4.41"
+snow = "0.10.0"
+byteorder = "1.5.0"
+futures = "0.3.31"
+base64 = "0.22.1"
+rand = "0.9.2"
+noise = "0.9.0"
+yamux = "0.13.6"
+futures-util = "0.3.31"
+tokio-util = { version = "0.7.16", features = ["codec", "compat"] }
+bincode = "1.0"
+serde = { version = "1.0.219", features = ["derive"] }
+x25519-dalek = "2.0.1"
+hex = "0.4.3"
+mux = "0.1.1"
+futures-io = "0.3.31"
+
+
+

@@ -8,11 +8,11 @@ async fn main() -> Result<()> {
     let client_static_priv = std::fs::read("client.key")?;
     let server_static_pub = std::fs::read("server.pub")?;
 
-    println!("[boot] connecting to 0.0.0.0:8443");
+    println!("[boot] connecting to 0.0.0.0:443");
 
     // Complete TCP connect, Noise_XK handshake, and Yamux upgrade
     let yamux_conn =
-        dial("0.0.0.0:8443", &client_static_priv, &server_static_pub).await?;
+        dial("0.0.0.0:443", &client_static_priv, &server_static_pub).await?;
 
     println!("[conn] handshake + yamux ready");
 

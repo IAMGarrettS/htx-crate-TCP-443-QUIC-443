@@ -46,8 +46,8 @@ async fn main() -> Result<()> {
     let server_static_priv = fs::read("server.key")?;
     let client_static_pub = fs::read("client.pub")?;
 
-    let listener = TcpListener::bind("0.0.0.0:8443").await?;
-    println!("[boot] Server listening on 0.0.0.0:8443");
+    let listener = TcpListener::bind("0.0.0.0:443").await?;
+    println!("[boot] Server listening on 0.0.0.0:443");
 
     // Spawn an accept loop that runs until shutdown signal
     let server_task = {
